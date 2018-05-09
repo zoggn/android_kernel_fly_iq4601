@@ -37,12 +37,10 @@
 #define TOUCHPANEL_H__
 
 /* Pre-defined definition */
-#define TPD_TYPE_CAPACITIVE
-#define TPD_TYPE_RESISTIVE
 #define TPD_POWER_SOURCE         MT6323_POWER_LDO_VGP1
-#define TPD_I2C_NUMBER           1
 #define TPD_WAKEUP_TRIAL         60
 #define TPD_WAKEUP_DELAY         100
+
 
 #define TPD_DELAY                (2*HZ/100)
 
@@ -83,22 +81,22 @@
 #if defined(MSG_HVGA)//add by SHENRUXUAN
 #define TPD_BUTTON_HEIGHT 			490
 #define TPD_KEY_COUNT           3
-#define TPD_KEYS                {KEY_MENU, KEY_HOMEPAGE, KEY_BACK}
+#define TPD_KEYS                {KEY_BACK, KEY_HOMEPAGE, KEY_MENU}
 #define TPD_KEYS_DIM            {{40,530,80,50},{140,530,80,50},{240,530,80,50}}
 #elif defined(MSG_FWVGA)
 #define TPD_BUTTON_HEIGHT 			900
 #define TPD_KEY_COUNT           3
-#define TPD_KEYS                {KEY_MENU, KEY_HOMEPAGE, KEY_BACK}
+#define TPD_KEYS                {KEY_BACK, KEY_HOMEPAGE, KEY_MENU}
 #define TPD_KEYS_DIM            {{40,1000,60,60},{140,1000,60,60},{240,1000,60,60}}
 #elif defined(BIRD_TP_PARAM_QHD)
 #define TPD_BUTTON_HEIGHT 			1000
 #define TPD_KEY_COUNT           3
-#define TPD_KEYS                {KEY_MENU, KEY_HOMEPAGE, KEY_BACK}
+#define TPD_KEYS                {KEY_BACK, KEY_HOMEPAGE, KEY_MENU}
 #define TPD_KEYS_DIM            {{90,1020,60,60},{270,1020,60,60},{450,1020,60,60}}
 #else
 #define TPD_BUTTON_HEIGHT 			810
 #define TPD_KEY_COUNT           3
-#define TPD_KEYS                {KEY_MENU, KEY_HOMEPAGE, KEY_BACK}
+#define TPD_KEYS                {KEY_BACK, KEY_HOMEPAGE, KEY_MENU}
 #define TPD_KEYS_DIM            {{40,1000,60,60},{140,1000,60,60},{240,1000,60,60}}
 #endif
 
