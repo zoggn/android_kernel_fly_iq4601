@@ -21,13 +21,25 @@ unsigned int brightness_mapping(unsigned int level)
 	return ERROR_BL_LEVEL;
 }
 */
-unsigned int brightness_mapping(unsigned int level)
+unsigned int brightness_mapping(unsigned int level) //custom mapping function(thx KosBeg.UA for reverse)
 {
     unsigned int mapped_level;
     
-    mapped_level = level;
-       
-	return mapped_level;
+    if (level - 30 > 225)
+    {
+        if(level - 1 > 28)
+            mapped_level = 0;
+        else
+            mapped_level=9;
+    }
+    else
+    {
+        mapped_level = (level + 1) >> 2;
+        if(mapped_level < 9)
+            mapped_level = 9;
+    }
+    
+    return mapped_level;
 }
 
 unsigned int Cust_SetBacklight(int level, int div)
@@ -46,7 +58,7 @@ static struct cust_mt65xx_led cust_led_list[MT65XX_LED_TYPE_TOTAL] = {
 	{"jogball-backlight", MT65XX_LED_MODE_NONE, -1, {0}},
 	{"keyboard-backlight",MT65XX_LED_MODE_NONE, -1, {0}},
 	{"button-backlight",  MT65XX_LED_MODE_NONE, -1, {0}},
-	{ "lcd-backlight",    MT65XX_LED_MODE_PWM,   0, { 1, 1, 3, 3, 0 }};
+	{"lcd-backlight",     MT65XX_LED_MODE_PWM,   0, { 1, 1, 3, 3, 0 }},
 };
 
 struct cust_mt65xx_led *get_cust_led_list(void)
